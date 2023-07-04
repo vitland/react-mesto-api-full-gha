@@ -1,0 +1,9 @@
+.header__line{
+  width: 100%;
+  min-width: 320px;
+  max-width: 880px;
+  height: 1px;
+  background-color: #545454;
+  opacity: .7;
+  box-sizing: border-box;
+}

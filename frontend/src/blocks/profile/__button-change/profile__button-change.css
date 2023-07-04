@@ -1,0 +1,35 @@
+.profile__button-change {
+  grid-area: icon;
+  place-self: center;
+  margin: 10px 0 0 19px;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  background: url("../../../images/pen_icon.svg");
+  background-color: #000;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid #fff;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile__button-change:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 720px) {
+  .profile__button-change {
+    width: 18px;
+    height: 18px;
+    margin: 0 0 5px 15.25px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .profile__button-change {
+    margin: 0 0 0 10px;
+  }
+}

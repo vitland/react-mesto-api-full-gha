@@ -1,0 +1,14 @@
+.profile__info{
+display: grid;
+grid-template-areas: 
+'name icon'
+'occup .';
+align-self: center;
+white-space: nowrap;
+}
+
+@media screen and (max-width: 320px) {
+  .profile__info{
+    margin: 4px 0 0 25px;
+  }
+}

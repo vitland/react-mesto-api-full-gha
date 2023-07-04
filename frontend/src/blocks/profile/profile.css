@@ -1,0 +1,33 @@
+.profile {
+  position: relative;
+  width: 100%;
+  max-width: 880px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(min-content, max-content)) auto;
+  color: #fff;
+  gap: 30px;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 879px) {
+  .profile {
+    padding: 0 27px;
+    gap: 15px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22.5px;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .profile {
+    gap: 22px;
+  }
+}

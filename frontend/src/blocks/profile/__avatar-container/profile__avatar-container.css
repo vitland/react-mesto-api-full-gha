@@ -1,0 +1,29 @@
+.profile__avatar-container {
+  box-sizing: border-box;
+  width: 120px;
+  height: 120px;
+  position: relative;
+}
+
+.profile__avatar-container:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  content: '';
+  background-color: rgba(0, 0, 0, 0);
+  color: aliceblue;
+  transition: background-color .2s ease;
+}
+
+.profile__avatar-container:hover::after {
+  background-image: url('../../../images/pen_icon.svg');
+  background-size: 26px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: aliceblue;
+  cursor: pointer;
+}
