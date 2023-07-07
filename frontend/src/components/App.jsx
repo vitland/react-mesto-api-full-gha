@@ -55,7 +55,7 @@ function App() {
     }
     api
       .getCards()
-      .then((cards) => setCards(cards))
+      .then(({ data }) => setCards(data))
       .catch((err) => console.error(err));
   }, [isLoggedIn]);
 
@@ -94,8 +94,7 @@ function App() {
   function handleSignIn(email, password) {
     authApi
       .signIn(email, password)
-      .then((data) => {
-        console.log(data);
+      .then(() => {
         setIsLoggedIn(true);
         navigate('/', { replace: true });
       })
@@ -131,8 +130,8 @@ function App() {
     setIsLoading(true);
     api
       .editUser(userData)
-      .then((user) => {
-        setCurrentUser(user);
+      .then(({data}) => {
+        setCurrentUser(data);
         closeAllPopups();
       })
       .catch((err) => console.error(err))
@@ -147,8 +146,8 @@ function App() {
     setIsLoading(true);
     api
       .editUserAvatar(avatarObj)
-      .then((user) => {
-        setCurrentUser(user);
+      .then(({data}) => {
+        setCurrentUser(data);
         closeAllPopups();
       })
       .catch((err) => console.error(err))
@@ -163,8 +162,8 @@ function App() {
     setIsLoading(true);
     api
       .addCard(cardObj)
-      .then((newCard) => {
-        setCards([newCard, ...cards]);
+      .then(({data}) => {
+        setCards([data, ...cards]);
         closeAllPopups();
       })
       .catch((err) => console.error(err))
@@ -176,13 +175,14 @@ function App() {
   }
 
   function handleLikeClick(card) {
-    const isLiked = card.likes.some((like) => like._id === currentUser._id);
+    const isLiked = card.likes.some((like) => like === currentUser._id);
 
     api
       .toggleLikeStatus(card._id, !isLiked)
-      .then((newCard) => {
+      .then(({ data }) => {
+        console.log(data);
         setCards((state) =>
-          state.map((card) => (card._id === newCard._id ? newCard : card))
+          state.map((card) => (card._id === data._id ? data : card))
         );
       })
       .catch((err) => console.error(err));

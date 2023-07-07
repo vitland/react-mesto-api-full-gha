@@ -1,7 +1,7 @@
 import Card from './Card';
 function CardsConatiner({ cards, onCardClick, onLikeClick, onDelClick }) {
   if (!cards) {
-    return null;
+    return 1;
   }
   return (
     <section className='elements'>

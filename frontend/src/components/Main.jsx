@@ -30,7 +30,7 @@ function Main(props) {
           type='button'
           onClick={onAddPlace}></button>
       </section>
-      <CardsConatiner {...{props}}
+      <CardsConatiner {...props}
       />
     </main>
   );
