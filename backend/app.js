@@ -8,7 +8,7 @@ const { errors } = require('celebrate');
 const router = require('./routes');
 const { errorsHandler } = require('./errors/errorsHandler');
 
-const { PORT = 3001, DB_LINK = 'mongodb://127.0.0.1:27017/mestodb' } =
+const { PORT = 3000, DB_LINK = 'mongodb://127.0.0.1:27017/mestodb' } =
   process.env;
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const cors = require('cors');
@@ -33,7 +33,7 @@ app.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
-}); 
+});
 app.use('/api',router);
 app.use(errorLogger);
 // celebrate обработчик ошибок
