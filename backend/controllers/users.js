@@ -2,7 +2,7 @@ const bcrypt = require('bcryptjs'); // импортируем bcrypt
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 const { NotFoundError } = require('../errors/notFoundError');
-const { SECRET } = require('../config');
+const { SECRET } = process.env;
 
 module.exports.getUsers = (req, res, next) => {
   User.find({})
