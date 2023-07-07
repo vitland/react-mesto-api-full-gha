@@ -29,6 +29,11 @@ app.use(requestLogger);
 app.use(
   cors({ origin: 'https://vmesto.nomoredomains.work', credentials: true }),
 );
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+}); 
 app.use('/api',router);
 app.use(errorLogger);
 // celebrate обработчик ошибок
