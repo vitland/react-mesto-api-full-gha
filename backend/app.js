@@ -27,7 +27,7 @@ app.use(bodyParser.json()); // для собирания JSON-формата
 app.use(bodyParser.urlencoded({ extended: true })); // для приёма веб-страниц внутри POST-запроса
 app.use(requestLogger);
 app.use(
-  cors({ origin: ['https://vmesto.nomoredomains.work', 'https://www.vmesto.nomoredomains.work'], credentials: true }),
+  cors({ origin: 'https://vmesto.nomoredomains.work', credentials: true }),
 );
 app.use('/api',router);
 app.use(errorLogger);
