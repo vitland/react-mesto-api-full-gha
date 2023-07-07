@@ -1,5 +1,4 @@
 import { useContext } from 'react';
-import Card from './Card';
 import CurrentUserContext from '../contexts/user/CurrentUserContext';
 import CardsConatiner from './CardsConatiner';
 

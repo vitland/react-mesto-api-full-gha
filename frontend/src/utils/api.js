@@ -82,13 +82,8 @@ class Api {
   }
 }
 
-// const api = new Api(
-//   'https://mesto.nomoreparties.co/v1/cohort-63',
-//   'bfea2fb3-1d49-4e0a-bbc4-333aa2efb088'
-// );
-
 const api = new Api(
-  'http://localhost:3001'
+  'http://localhost:3001/api'
 );
 
 export default api;

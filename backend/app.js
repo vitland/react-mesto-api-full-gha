@@ -29,7 +29,7 @@ app.use(requestLogger);
 app.use(
   cors({ origin: 'http://vmesto.nomoredomains.work', credentials: true }),
 );
-app.use('/api', router);
+app.use('/api',router);
 app.use(errorLogger);
 // celebrate обработчик ошибок
 app.use(errors());
