@@ -27,14 +27,14 @@ app.use(bodyParser.json()); // для собирания JSON-формата
 app.use(bodyParser.urlencoded({ extended: true })); // для приёма веб-страниц внутри POST-запроса
 app.use(requestLogger);
 app.use(
-  cors({ origin: 'https://vmesto.nomoredomains.work', credentials: true }),
+  cors({ origin: ['https://vmesto.nomoredomains.work', 'api.vmesto.nomoredomains.work'], credentials: true }),
 );
 app.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
 });
-app.use('/api',router);
+app.use('/',router);
 app.use(errorLogger);
 // celebrate обработчик ошибок
 app.use(errors());
