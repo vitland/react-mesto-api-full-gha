@@ -1,8 +1,7 @@
-require('dotenv').config()
 const jwt = require('jsonwebtoken');
 const { LoginError } = require('../errors/loginError');
 
-const { SECRET } = process.env
+const { SECRET = 'top-secret' } = process.env;
 
 module.exports = (req, res, next) => {
   const token = req.cookies.jwt;
