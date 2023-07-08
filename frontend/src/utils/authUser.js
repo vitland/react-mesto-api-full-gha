@@ -56,6 +56,6 @@ class AuthApi {
   }
 }
 
-const authApi = new AuthApi('http://localhost:3000/api');
+const authApi = new AuthApi('https://api.vmesto.nomoredomains.work');
 
 export default authApi;
