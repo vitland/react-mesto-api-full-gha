@@ -83,7 +83,7 @@ class Api {
 }
 
 const api = new Api(
-  'https://vmesto.nomoredomains.work/api'
+  'http://localhost:3000/api'
 );
 
 export default api;

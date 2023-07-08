@@ -27,7 +27,7 @@ app.use(bodyParser.json()); // для собирания JSON-формата
 app.use(bodyParser.urlencoded({ extended: true })); // для приёма веб-страниц внутри POST-запроса
 app.use(requestLogger);
 app.use(
-  cors({ origin: ['https://vmesto.nomoredomains.work', 'api.vmesto.nomoredomains.work'], credentials: true }),
+  cors({ origin: ['https://vmesto.nomoredomains.work', 'https://api.vmesto.nomoredomains.work', 'http://localhost:3000'], credentials: true }),
 );
 app.get('/crash-test', () => {
   setTimeout(() => {
