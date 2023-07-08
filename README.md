@@ -13,4 +13,4 @@ IP-адрес 158.160.20.20
 
 Frontend https://vmesto.nomoredomains.work/
 
-Backend https://vmesto.nomoredomains.work/api
+Backend https://api.vmesto.nomoredomains.work/
