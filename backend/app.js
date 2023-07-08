@@ -26,15 +26,30 @@ app.use(cookieParser());
 app.use(bodyParser.json()); // для собирания JSON-формата
 app.use(bodyParser.urlencoded({ extended: true })); // для приёма веб-страниц внутри POST-запроса
 app.use(requestLogger);
-app.use(
-  cors({ origin: ['https://vmesto.nomoredomains.work', 'https://api.vmesto.nomoredomains.work', 'http://localhost:3000'], credentials: true }),
-);
+
+const allowedOrigin = [
+  'https://vmesto.nomoredomains.work',
+  'https://api.vmesto.nomoredomains.work',
+  'http://localhost:3000',
+];
+const corsOpts = (corsOptions = {
+  origin: function (origin, callback) {
+    if (allowedOrigin.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+});
+
+app.use(cors(corsOpts));
 app.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
 });
-app.use('/',router);
+app.use('/', router);
 app.use(errorLogger);
 // celebrate обработчик ошибок
 app.use(errors());
