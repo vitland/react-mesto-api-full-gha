@@ -21,7 +21,7 @@ const errorsHandler = (err, req, res, next) => {
       .send({ message: 'Такой пользователь уже существует' });
   }
 
-  return res.status(500).send({ message: 'На сервере произошла ошибка' });
+  return res.status(500).send({ message: `На сервере произошла ошибка ${err}` });
 };
 
 module.exports = { errorsHandler };
