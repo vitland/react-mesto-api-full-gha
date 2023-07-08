@@ -45,6 +45,7 @@ const corsOpts = (corsOptions = {
 
 app.use(cors(corsOpts));
 app.get('/crash-test', () => {
+  console.log('first')
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
@@ -54,7 +55,7 @@ app.use(errorLogger);
 // celebrate обработчик ошибок
 app.use(errors());
 app.use(errorsHandler);
- 
+
 app.listen(PORT, () => {
   console.log(`Сревер запущен на ${PORT} порту`);
 });
