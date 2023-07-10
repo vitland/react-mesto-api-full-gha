@@ -21,7 +21,7 @@ function AuthForm({onSubmit, name}) {
     evt.preventDefault();
     onSubmit(email, password);
   }
-
+console.log(name)
   return (
     <Form name={name} onSubmit={handleSubmit}>
     <fieldset className="form__set form__set_auth">
@@ -80,7 +80,7 @@ function AuthForm({onSubmit, name}) {
         {formErrors.passwordErrorMsg}
       </span>
     </fieldset>
-    <SubmitButton btnText={'Войти'} btnStatus={btnStatus} btnReversed={true}/>
+    <SubmitButton btnText={`${name === 'register'?'Зарегистрироваться':'Войти'}`} btnStatus={btnStatus} btnReversed={true}/>
   </Form>
   )
 }
