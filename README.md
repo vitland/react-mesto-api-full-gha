@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 158.160.20.20
+IP 158.160.20.20
 
 Frontend https://vmesto.nomoredomains.work/
 
