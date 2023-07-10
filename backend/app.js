@@ -30,7 +30,7 @@ app.use(requestLogger);
 const allowedOrigin = [
   'https://vmesto.nomoredomains.work',
   'https://api.vmesto.nomoredomains.work',
-  'http://localhost:3000',
+  'http://localhost',
 ];
 
 const corsOpts = {
