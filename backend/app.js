@@ -32,7 +32,8 @@ const allowedOrigin = [
   'https://api.vmesto.nomoredomains.work',
   'http://localhost:3000',
 ];
-const corsOpts = (corsOptions = {
+
+const corsOpts = {
   origin: function (origin, callback) {
     if (allowedOrigin.indexOf(origin) !== -1) {
       callback(null, true);
@@ -41,11 +42,10 @@ const corsOpts = (corsOptions = {
     }
   },
   credentials: true,
-});
+}
 
 app.use(cors(corsOpts));
 app.get('/crash-test', () => {
-  console.log('first')
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
