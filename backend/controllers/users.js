@@ -34,22 +34,35 @@ module.exports.getCurrentUser = async (req, res, next) => {
 };
 
 module.exports.createUser = (req, res, next) => {
-  const {
-    name, avatar, about, email, password,
-  } = req.body;
+  const { name, avatar, about, email, password } = req.body;
   bcrypt
     .hash(password, 10)
-    .then((passwordHash) => User.create({
-      name, avatar, about, email, password: passwordHash,
-    }))
-    .then(({
-      // eslint-disable-next-line no-shadow
-      name, avatar, about, email,
-    }) => res.status(201).send({
-      data: {
-        name, avatar, about, email,
-      },
-    }))
+    .then((passwordHash) =>
+      User.create({
+        name,
+        avatar,
+        about,
+        email,
+        password: passwordHash,
+      }),
+    )
+    .then(
+      ({
+        // eslint-disable-next-line no-shadow
+        name,
+        avatar,
+        about,
+        email,
+      }) =>
+        res.status(201).send({
+          data: {
+            name,
+            avatar,
+            about,
+            email,
+          },
+        }),
+    )
     .catch(next);
 };
 
@@ -84,14 +97,17 @@ module.exports.signin = (req, res, next) => {
   User.findUserByCredentials(email, password)
     .then((user) => {
       const token = jwt.sign({ _id: user._id }, SECRET, { expiresIn: '7d' });
-      console.log(token)
-      res.cookie('jwt', token, { maxAge: 3600000 * 24 * 7, httpOnly: true, sameSite: true })
+      console.log(token);
+      res.cookie('jwt', token, {
+        maxAge: 3600000 * 24 * 7,
+        httpOnly: true,
+        sameSite: true,
+      });
       res.send({ message: 'Авторизирован' }).end();
     })
     .catch(next);
 };
 
 module.exports.signout = (req, res, next) => {
-      res.cookie('jwt', 'none', { expires: new Date(Date.now() + 5 * 1000), httpOnly: true, sameSite: true })
-      res.send({ message: 'Вышел' }).end();
+  res.clearCookie('jwt').send({ message: 'Вышел' }).end();
 };

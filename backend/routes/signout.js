@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { signout } = require('../controllers/users');
 
-router.get(
+router.delete(
   '/',
   signout,
 );
